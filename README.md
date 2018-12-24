@@ -2,7 +2,9 @@
 Learn basic to advanced commonly asked JavaScript interview questions from a syntactical perspective. Surprisingly over 50% of developers
 struggle with these basic examples in interviews.
 
-## Reverse a string - `beginner`
+`B` - Beginner, `A` - Advanced
+
+## `B` Reverse a string
 Reverse a string with a function:
 
 ```javascript
@@ -27,7 +29,7 @@ reversedStr
 // => "?gniod uoy era woH"
 ```
 
-## Palindrome - `beginner`
+## `B` Palindrome
 Check for a palindrome
 
 ```javascript
@@ -54,9 +56,54 @@ palindrome('A man, a plan, a canal. Panama')
 // => true
 ```
 
-## FizzBuzz
+## `B` FizzBuzz
+Solve the fizzbuzz challenge
 
-## Prime - `beginner`
+```javascript
+function fizzBuzz() {
+  for (var i = 1; i < 100; i++) {
+    if (i % 15 === 0) {
+      console.log('FizzBuzz')
+    } else if (i % 3 === 0) {
+      console.log('Fizz')
+    } else if (i % 5 === 0) {
+      console.log('Buzz')
+    } else {
+      console.log(i)
+    }
+  }
+}
+```
+
+Using a generator
+
+```javascript
+function *fizzBuzz() {
+  var i = 0
+  while (true) {
+    ++i
+    if (i % 3 === 0 && i % 5 === 0) {
+      yield 'Fizz Buzz'
+    } else if (i % 3 === 0) {
+      yield 'Fizz'
+    } else if (i % 5 === 0) {
+      yield 'Buzz'
+    } else {
+      yield i
+    }
+  }
+}
+
+var fizzBuzzGen = fizzBuzz()
+fizzBuzzGen.next()
+
+// or
+for (var i = 1; i < 100; i++) {
+  fizzBuzzGen.next().value + ' '
+}
+```
+
+## `B` Prime
 Find prime numbers in an array of n numbers
 
 ```javascript
@@ -84,9 +131,7 @@ isPrime(4)
 
 ## String Compression
 
-## FizzBuzz
-
-## Sentence Capitalization - `beginner`
+## `B` Sentence Capitalization
 Capitalize the first word on a sentence and leave the rest intact
 
 ```javascript
@@ -110,4 +155,15 @@ capitalize('the quick brown fox over the lazy dog')
 
 ## Fibonnacci
 
-## Find Vowels
+## Find All Vowels in a String
+Determine the count of all vowels in a particular string. The simplest version below
+
+```javascript
+function vowels(str) {
+  var matches = str.match(/[aeiou]/gi)
+  return matches ? matches.length : 0
+}
+
+vowels('aeiou')
+// => 5
+```
