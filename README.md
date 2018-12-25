@@ -2,7 +2,7 @@
 Learn basic to advanced commonly asked JavaScript interview questions from a syntactical perspective. Surprisingly over 50% of developers
 struggle with these basic examples in interviews.
 
-`B` - Beginner, `A` - Advanced
+`B` - Beginner, `I` - Intermediate, `A` - Advanced
 
 ## `B` Reverse a string
 Reverse a string with a function:
@@ -129,7 +129,7 @@ isPrime(4)
 // => false
 ```
 
-## String Compression
+## `A` String Compression
 
 ## `B` Sentence Capitalization
 Capitalize the first word on a sentence and leave the rest intact
@@ -155,7 +155,7 @@ capitalize('the quick brown fox over the lazy dog')
 
 ## Fibonnacci
 
-## Find All Vowels in a String
+## `B` Find All Vowels in a String
 Determine the count of all vowels in a particular string. The simplest version below
 
 ```javascript
@@ -166,4 +166,52 @@ function vowels(str) {
 
 vowels('aeiou')
 // => 5
+```
+
+## `I` Random String 
+Create a function that prints out a random string with both numbers and letters with a user specified length
+as a parameter
+
+```javascript
+function rand(strLen) {
+  strLen = typeof(strLen === 'number' &&  strLen > 0 ? strLen : false)
+  
+  if (strLen) {
+    var possibleCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789'
+      var str = ''
+      
+      for (i = 1; i < strLen; i++) {
+        var randomCharacter = possibleCharacters.charAt(Math.floor(Math.random() * possibleCharacters.length))
+        str += randomCharacter
+      }
+      return str
+  } else {
+    return false
+  }
+}
+```
+
+## `I` Given an Array of Integers, Return the Smallest Positive Integer Not In It
+
+```javascript
+function findNumber(values) {
+  let result = [];
+
+  for (let i = 0; i < values.length; ++i) {
+    if (0 <= values[i]) {
+      result[values[i]] = true;
+    }
+  }
+
+  for (let i = 1; i <= result.length; ++i) {
+    if (undefined === result[i]) {
+      return i;
+    }
+  }
+
+  return 1
+}
+
+findNumber([1, 2, 3, 5, 6, 7, 8, 9])
+//=> 4
 ```
