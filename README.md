@@ -215,3 +215,28 @@ function findNumber(values) {
 findNumber([1, 2, 3, 5, 6, 7, 8, 9])
 //=> 4
 ```
+
+## `A` What will the code below output to the console and why?
+```javascript
+var baz = {
+  foo: "bar",
+  func: function() {
+    var self = this
+    console.log("my outer func:  this.foo = " + this.foo)
+    console.log("my outer func:  self.foo = " + self.foo)
+      (function() {
+        console.log("my inner func:  this.foo = " + this.foo)
+        console.log("my inner func:  self.foo = " + self.foo)
+      }())
+  }
+}
+
+baz.func()
+
+/* $ =>
+my outer func:  this.foo = bar
+my outer func:  self.foo = bar
+my inner func:  this.foo = undefined
+my inner func:  self.foo = bar
+*/
+```
