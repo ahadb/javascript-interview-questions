@@ -150,6 +150,32 @@ capitalize('the quick brown fox over the lazy dog')
 ## Array Chunking
 
 ## Max Characters
+Given a string, return the character that is most commonly used in the string
+
+```javascript
+function maxChar(str) {
+  const characterMap = {}
+  let max = 0
+  let maxCharacter = ''
+
+  for (let char of str) {
+    if (!characterMap[char]) {
+      characterMap[char] = 1
+    } else {
+      characterMap[char] = characterMap[char] + 1
+    }
+  }
+
+  for (let char in characterMap) {
+    if (characterMap[char] > 0) {
+      max = characterMap[char]
+      maxChar = char
+    }
+  }
+
+  return maxChar    
+}    
+```
 
 ## Anagram
 
