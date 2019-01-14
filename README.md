@@ -133,23 +133,36 @@ isPrime(4)
 
 ## `B` Sentence Capitalization
 Capitalize the first word on a sentence and leave the rest intact
-
 ```javascript
-function capitalize(s) {
-  if (typeof s !== 'string') {
+function capitalize(str) {
+  var words = []
+
+  for (let word of str.split(' ')) {
+    words.push(word[0].toUpperCase() + word.slice(1))
+  }
+
+  return words.join(' ')
+}
+```
+
+
+> an even simpler technique
+```javascript
+function capitalize(str) {
+  if (typeof str !== 'string') {
     return ''
   }
   
-  return s.charAt(0).toUpperCase() + s.slice(1)
+  return str.charAt(0).toUpperCase() + str.slice(1)
 }
 
 capitalize('the quick brown fox over the lazy dog')
-// => "the quick brown fox over the lazy dog"
+// => "The quick brown fox over the lazy dog"
 ```
 
 ## Array Chunking
 
-## Max Characters
+## `I` Max Characters
 Given a string, return the character that is most commonly used in the string
 
 ```javascript
