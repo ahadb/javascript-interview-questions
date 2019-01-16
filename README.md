@@ -145,7 +145,6 @@ function capitalize(str) {
 }
 ```
 
-
 > an even simpler technique
 ```javascript
 function capitalize(str) {
@@ -160,7 +159,28 @@ capitalize('the quick brown fox over the lazy dog')
 // => "The quick brown fox over the lazy dog"
 ```
 
-## Array Chunking
+## `I` Array Chunking
+Create a chunked array (with sub arrays) given an array and chunk size
+```javascript
+function chunk(arr, size) {
+  var chunkedArr = []
+
+  for (let el of arr) {
+    var last = chunkedArr[chunkedArr.length - 1]
+    
+    if (!last || last.length === size) {
+        chunkedArr.push([el])
+    } else {
+        last.push(el)
+    }
+  }
+
+  return chunkedArr
+}
+
+chunk([1, 2, 3], 2)
+// =>  [[1, 2], 3]
+```
 
 ## `I` Max Characters
 Given a string, return the character that is most commonly used in the string
